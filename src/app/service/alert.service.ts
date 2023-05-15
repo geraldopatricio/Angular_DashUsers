@@ -1,0 +1,20 @@
+import { Injectable } from '@angular/core';
+import {MatSnackBar, MatSnackBarRef} from '@angular/material/snack-bar';
+import { Observable} from 'rxjs';
+
+
+@Injectable({
+  providedIn: 'root'
+})
+export class AlertService {
+
+  constructor(private _snackBar: MatSnackBar) { }
+
+
+  openSnackBar(message : string, action : string = 'Ok'){
+    this._snackBar.open(message,action,{
+      duration:  1000,
+      verticalPosition: 'top',
+    });
+  }
+}

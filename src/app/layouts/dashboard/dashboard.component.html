@@ -1,0 +1,401 @@
+<div class="navbar">
+  <div class="logo-content">
+    <div class="logo">
+      <div class="logo-name">Gerenciador</div>
+    </div>
+  </div>
+  <ul class="navlist">
+    <li>
+      <a href="javascript:void(0)">
+        <i class="bx bx-grid-alt"></i>
+        <span class="link-name">Dashboard</span>
+      </a>
+      <span class="tooltip">Dashboard</span>
+    </li>
+
+  
+
+    <!-- <li>
+      <a href="javascript:void(0)">
+        <i class="bx bx-message"></i>
+        <span class="link-name">Message</span>
+      </a>
+      <span class="tooltip">Messages</span>
+    </li> -->
+
+
+
+    <li (click)="addEditEmpForm()">
+      <a href="javascript:void(0)">
+        <i class="bx bx-user-plus"></i>
+        <span class="link-name">Usuários</span>
+      </a>
+      <span class="tooltip">Adicionar</span>
+    </li>
+
+    <li id="logout" (click)="logout()">
+      <a href="#">
+        <i class="bx bx-log-out"></i>
+        <span class="link-name">Logout</span>
+      </a>
+      <span class="tooltip">Logout</span>
+    </li>
+  </ul>
+</div>
+<!-- Content Part -->
+
+<div class="container">
+  
+  <div class="welcome">
+  
+    
+    <div class="title">
+      <div class="title-text"><span></span></div>
+      <div class="srch">
+        <input type="text" placeholder="Consultar ..">
+        <i class='bx bx-search' ></i>
+      </div>
+      <div class="title-info">
+        <ul>
+          <li class="not">
+            <i class='bx bx-bell'></i>
+          </li>
+          <li class="prof">
+            <img src="../../../assets/images/hr.png" alt="">
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="bar-bg">
+    <div class="bar-chart-main">
+      <div class="cardset">
+        <div class="set1">
+          <div class="pack-1">
+            <div id="one" class="card1">
+              <i class="bx bx-home-smile"></i>
+              <div class="txt">
+                <span>{{ employeeZ.length }}</span>
+              </div>
+              <div class="info-card">
+                <span>Total de <br />
+                  Usuários</span>
+              </div>
+            </div>
+            <div id="one" class="card1">
+              <i class='bx bx-run common'></i>
+              <div class="txt">
+                <span>{{ activeEmp }}</span>
+              </div>
+              <div class="info-card">
+                <span>Total de Usuários<br />
+                   Ativos</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="pack-2">
+            <div id="one" class="card1">
+              <i class='bx bx-user-minus common'></i>
+              <div class="txt">
+                <span>{{ inactiveEmp }}</span>
+              </div>
+              <div class="info-card">
+                <span>Total de Usuários<br />
+                   Inativos</span>
+              </div>
+            </div>
+            <div id="one" class="card1">
+              <i class='bx bx-time common'></i>
+              <div class="txt">
+                <span>{{ workinHour }}</span>
+
+              </div>
+              <div class="info-card">
+                <span>Total horas <br />
+                  trabalhadas por dia</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div class="bar-chart">
+        <div class="bar-title">
+          Estatística de acessos 
+        </div>
+        <div id="d3"></div>
+        <div class="info">
+          <div class="info-dot">
+            <span class="dot1"></span>
+            <p>Mais de 5 dias</p>
+          </div>
+          <div class="info-dot">
+            <span class="dot2"></span>
+            <p>Menos de 5 dias</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="donut-main">
+    <div class="donut-chart">
+      <div id="chart"></div>
+    </div>
+    <div class="donutchart-info">
+      <div class="donut-table">
+        <div class="table-header">
+          <h1>Lista de atividades dos usuários</h1>
+        </div>
+        <div class="table-body">
+          <table>
+            <thead>
+              <tr>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Status</th>
+              <tr>
+
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let e of empActandInact">
+                <td>{{e.id}}</td>
+                <td>{{e.name}}</td>
+                <td>{{e.status}}</td>
+                
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="gauge-main">
+    <div class="gauge-chart">
+      <div class="g-title">
+        Total de horas produtivas
+      </div>
+      <div id="gauge"></div>
+      <div class="g-info">
+        <div class="a">
+          <span>Total de horas trabalhadas <span class="a-sub">{{workinHour}}</span></span>
+        </div>
+        <div class="b">
+          <span>Númerio de usuários ativos <span class="a-sub">{{activeEmp}}</span> </span>
+        </div>
+        <div class="c">
+             <span>Total de horas produtivas <span class="a-sub">{{produtiveHrs}}</span>  </span>
+        </div>
+        
+        
+     
+      </div>
+    </div>
+    <div class="emp-bar">
+      <div class="title"> <span>Número de Usuários</span></div>
+     
+      <div class="male">
+        <div class="icon">
+          <i class='bx bx-male'></i>
+        </div>
+        <span>Homens</span>
+        <div class="count">
+          {{maleEmp}}
+        </div>
+        
+      </div>
+      <div class="female">
+        <div class="icon">
+          <i class='bx bx-female' ></i>
+
+        </div>
+        <span>Mulheres</span>
+        <div class="count">
+          {{femaleEmp}}
+        </div>
+     
+      </div>
+
+    </div>
+
+    
+  </div>
+
+  <div class="table" id="table">
+    <div class="table-title">Resumo de Usuários</div>
+    <mat-form-field class="form">
+      <mat-label>Consultar</mat-label>
+      <input matInput (keyup)="applyFilter($event)" id="search" placeholder="Consultar ..." #input />
+    </mat-form-field>
+    <!-- <button mat-raised-button (click)="addEditEmpForm()">
+        Add a Employee
+      </button> -->
+
+    <table id="mat-table" mat-table [dataSource]="dataSource" matSort>
+      <!-- Position Column -->
+
+      <ng-container matColumnDef="Id">
+        <th mat-header-cell *matHeaderCellDef>ID</th>
+        <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>Nome</th>
+        <td mat-cell *matCellDef="let element">
+          <button id="btn-hide" (click)="view(element.id)">
+            {{ element.name }}
+          </button>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="lastName">
+        <th mat-header-cell *matHeaderCellDef>CPF</th>
+        <td mat-cell *matCellDef="let element">{{ element.lastName }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef>E-mail</th>
+        <td mat-cell *matCellDef="let element">{{ element.email }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="dob">
+        <th mat-header-cell *matHeaderCellDef>Nascimento</th>
+        <td mat-cell *matCellDef="let element">{{ element.dob | date }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="gender">
+        <th mat-header-cell *matHeaderCellDef>Sexo</th>
+        <td mat-cell *matCellDef="let element">{{ element.gender }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="qualification">
+        <th mat-header-cell *matHeaderCellDef>Profissão</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.qualification }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="address">
+        <th mat-header-cell *matHeaderCellDef>Endereço</th>
+        <td mat-cell *matCellDef="let element">{{ element.address }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="mobileNumber">
+        <th mat-header-cell *matHeaderCellDef>Fone</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.mobileNumber }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="position">
+        <th mat-header-cell *matHeaderCellDef>UF</th>
+        <td mat-cell *matCellDef="let element">{{ element.position }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="package">
+        <th mat-header-cell *matHeaderCellDef>Cidade</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.package}}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="username">
+        <th mat-header-cell *matHeaderCellDef>Login</th>
+        <td mat-cell *matCellDef="let element">{{ element.username }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="password">
+        <th mat-header-cell *matHeaderCellDef>Senha</th>
+        <td mat-cell *matCellDef="let element">{{ element.password }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef>Status</th>
+        <td mat-cell *matCellDef="let element">{{ element.status }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="leaves">
+        <th mat-header-cell *matHeaderCellDef>Acessos</th>
+        <td mat-cell *matCellDef="let element">{{ element.leaves }}</td>
+      </ng-container>
+
+      <!-- <ng-container matColumnDef="image">
+            <th mat-header-cell *matHeaderCellDef> Profile Picture </th>
+            <td mat-cell *matCellDef="let element"> <img [src]="element.image" /> </td>
+          </ng-container> -->
+
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef>Ações</th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-icon-button color="primary" (click)="editform(element)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" (click)="deleteEmployee(element.id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+
+          <button mat-icon-button color="primary" (click)="view(element.id)">
+            <mat-icon>visibility</mat-icon>
+          </button>
+        </td>
+        <router-outlet></router-outlet>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="tableTitle"></tr>
+      <tr mat-row *matRowDef="let row; columns: tableTitle"></tr>
+
+      <!-- Row shown when there is no matching data. -->
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="4">
+          No data matching "{{ input.value }}"
+        </td>
+      </tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Escolha a página"></mat-paginator>
+  </div>
+
+
+  <!-- <div id="donut"></div> -->
+
+  <!-- 
+<div class="leave-application-list">
+  <div *ngFor="let application of notifications">
+    <div class="leave-application">
+      <div class="leave-application-header">
+        <span class="leave-application-date">{{ application.fullName }}</span>
+        <span class="leave-application-status">{{ application.userId }}</span>
+        <span class="leave-application-status">{{ application.password }}</span>
+        <span class="leave-application-status">{{ application.mobileNo }}</span>
+      </div>
+      <div class="leave-application-body">
+        <div class="leave-application-subject">{{ application.startDate | date }}</div>
+        <div class="leave-application-message">{{ application.endDate  | date}}</div>
+        <div class="leave-application-subject">{{ application.days }}</div>
+        <div class="leave-application-message">{{ application.reason}}</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<button mat-icon-button [matBadge]="notificationCount" matBadgeColor="warn" (click)="showLeaveDetails()">
+  <mat-icon>mail</mat-icon>
+</button> -->
+
+  <script src="https://d3js.org/d3.v6.min.js"></script>
+</div>
+
+<footer>
+ 
+  <div class="footer">
+    
+  </div>
+</footer>

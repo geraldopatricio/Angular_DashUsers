@@ -1,0 +1,126 @@
+<!-- <div class="bg">g</div> -->
+<div class="navbar">
+    
+    <ul class="icon-set">
+        <!-- <li><button (click)="editEmployeedetails(test1)">Edit</button></li>
+        <li><button (click)="logout()">Logout</button></li>
+        <li><button (click)=" leaveApplication()">Leave Application</button></li> -->
+
+        <li class="btn" (click)="editEmployeedetails(test1)">
+            <!-- //<img class="svg" src="../../../assets/images/edit.svg" > -->
+            <i class='bx bx-edit svg '></i>
+            <p class="li-title">Editar Usuário</p>
+           
+        </li>
+        
+        <li class="btn" id="leave" (click)=" leaveApplication()">
+            <i class='bx bx-calendar-minus svg'></i>
+            <p class="li-title">Acessos</p>
+        </li>
+        
+        <li class="btn" (click)="logout()">
+            <i class='bx bx-log-out svg' ></i>
+            <p class="li-title">Logout</p>
+        </li>
+       
+
+       </ul>
+</div>
+
+
+
+    
+<div class="container">
+   
+
+    <div class="section">
+    <div class="title">
+        <div class="bg-title">
+
+        <h1> <span>Bem vindo de Volta</span>  <br> <b>{{test1?.name}} {{test1?.lastName}}</b></h1>
+    </div>
+    </div>
+
+    <div class="main">
+
+ 
+
+<div class="main-content">
+    <div class="card">
+        <img class="profile" src="../../../assets/images/person.jpg" alt="">
+        <div class="text">
+            <span class="one">{{test1?.name}} {{test1?.lastName}}</span><br>
+            <span class="two">{{test1?.position}}</span>
+        </div>
+
+    </div>
+
+    <div class="details">
+        <mat-tab-group animationDuration="0ms">
+            <mat-tab label="Personal Details">
+                <div class="tab1" appearance="outline">
+                    <p>Nome</p>
+                    <span>{{test1?.name}}</span>
+
+
+                </div>
+                <div class="tab1" appearance="outline">
+                    <p>CPF</p>
+                    <span>{{test1?.lastName}}</span>
+                </div>
+                <div class="tab1" appearance="outline">
+                    <p>Nascimento</p>
+                    <span>{{test1?.dob | date}}</span>
+                </div>
+                <div class="tab1" appearance="outline">
+                    <p>Email</p>
+                    <span>{{test1?.email}}</span>
+                </div>
+                <div class="tab1" appearance="outline">
+                    <p>Fone</p>
+                    <span>{{test1?.mobileNumber}}</span>
+                </div>
+                <div class="tab1" appearance="outline">
+                    <p>Endereço</p>
+                    <span>{{test1?.address}}</span>
+                </div>
+
+                <div class="tab1" appearance="outline">
+                    <p>Sexo</p>
+                    <span>{{test1?.gender}}</span>
+                </div>
+                <div class="tab1" appearance="outline">
+                    <p>Profissão</p>
+                    <span>{{test1?.qualification}}</span>
+                </div>
+
+
+            </mat-tab>
+            <mat-tab label="Login Credential">
+                <div class="tab1" appearance="outline">
+                    <p>Login</p>
+                    <span>{{test1?.username}}</span>
+                </div>
+
+                <div class="tab1" appearance="outline">
+                    <p>Senha</p>
+                    <span>{{test1?.password}}</span>
+                </div>
+
+            </mat-tab>
+           
+          </mat-tab-group>
+    </div>
+</div>
+</div>
+
+</div>
+
+
+</div>
+
+
+<div class="nav-bottom">
+    Rodapé Aqui
+</div>
+

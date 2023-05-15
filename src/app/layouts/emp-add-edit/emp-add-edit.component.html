@@ -1,0 +1,142 @@
+<div mat-dialog-title>
+    <h1>Adicionar usuários</h1>
+</div>
+<form [formGroup]="empForm" (ngSubmit)="onFormSubmit()">
+<div mat-dialog-content class="content">
+
+    <div class="row">
+        <mat-form-field appearance="outline">
+            <mat-label>Nome</mat-label>
+            <input matInput formControlName="name">
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>CPF</mat-label>
+            <input matInput formControlName="lastName">
+          </mat-form-field>
+    </div>
+
+    <div class="row">
+        <mat-form-field appearance="outline">
+            <mat-label>E-mail</mat-label>
+            <input matInput type="email" formControlName="email">
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Nascimento</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="dob">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+
+
+          
+    </div>
+
+
+    <div class="row">
+        <mat-radio-group aria-label="Select an option" formControlName="gender">
+            <mat-label>Sexo :</mat-label>
+            <mat-radio-button value="male">Homem</mat-radio-button>
+            <mat-radio-button value="female">Mulher</mat-radio-button>
+            <mat-radio-button value="female">Outros</mat-radio-button>
+          </mat-radio-group>
+          
+    </div>
+
+    <div class="row">
+
+        <mat-form-field appearance="outline">
+            <mat-label>Profissão</mat-label>
+            <mat-select formControlName="qualification">
+              <mat-option   *ngFor="let val of education" [value]="val">{{val}}
+                
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+    </div>
+
+    <div class="row">
+
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Endereço</mat-label>
+            <textarea matInput formControlName="address" ></textarea>
+          </mat-form-field>
+
+    </div>
+
+    <div class="row">
+        <mat-form-field appearance="outline">
+            <mat-label>Fone</mat-label>
+            <input matInput type="tel" formControlName="mobileNumber">
+          </mat-form-field>
+
+          
+            <mat-label>Foto
+              <input type="file" (change)="onFileSelected($event)" formControlName="image">
+            <!-- <button mat-raised-button color="primary" type="button" >Choose File</button> -->
+          
+          </mat-label>
+            
+    </div>
+
+    <div class="row">
+
+        <mat-form-field appearance="outline">
+            <mat-label>UF</mat-label>
+            <input matInput type="text" formControlName="position">
+          </mat-form-field>
+
+        
+          <mat-form-field appearance="outline">
+            <mat-label>Cidade</mat-label>
+            <input matInput type="tel" formControlName="package">
+          </mat-form-field>
+
+        
+
+    </div>
+
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label>Login</mat-label>
+        <input matInput formControlName="username">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Senha</mat-label>
+        <input matInput formControlName="password">
+      </mat-form-field>
+
+    </div>
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label>Acessos</mat-label>
+        <input matInput type="number" formControlName="leaves">
+        <mat-hint>Dias</mat-hint>
+      </mat-form-field>
+
+    </div>
+
+    <div class="row">
+
+      
+      <mat-form-field appearance="outline">
+        <mat-label>Status</mat-label>
+        <mat-select formControlName="status">
+          <mat-option   *ngFor="let val of stat" [value]="val">{{val}}
+            
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+    </div>
+    
+   
+</div>
+
+<div mat-dialog-actions class="btn-set">
+    <button mat-raised-button color="primary" type="submit">{{data ? 'Update' : 'Salvar'}}</button>
+    <button mat-raised-button type="button" [mat-dialog-close]="false">Cancelar</button>
+</div>
+</form>
