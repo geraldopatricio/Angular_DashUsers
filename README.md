@@ -20,7 +20,7 @@ graficos analíticos e estatísticos usando banco de Dados JSON.
 4 - rode a aplicação
 
 
-Git clone Link_deste_repositório
+Git clone https://github.com/geraldopatricio/Angular_DashUsers.git
 npm i 
 npx json-server --watch db.json --port 3000
 npm start
