@@ -25,6 +25,9 @@ npm start
 
 ## Aplicação rodando:
 <p align="center">
+  <img src="./src/assets/images/0.jpg" width="800" alt="Angular" />
+</p>
+<p align="center">
   <img src="./src/assets/images/1.jpg" width="800" alt="Angular" />
 </p>
 <p align="center">
