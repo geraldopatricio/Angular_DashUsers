@@ -7,8 +7,9 @@
 
 ## Objetivo
 ```bash
-Aplicação de Acesso de Usuários com gerenciamento da tabela de usuários e Dashboard com 
-graficos analíticos e estatísticos usando banco de Dados JSON.
+Aplicação completa de gerenciamento de usuarios utilizando JSON Server, 
+formGroup, com datagrid para listar os usuarios, editar, criar novos, excluir, consultar, filtrar
+e com tela de login de acessso, usando recursos de modal, alertas, etc.
 
 ```
 
