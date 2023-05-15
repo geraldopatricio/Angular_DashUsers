@@ -12,7 +12,7 @@ graficos analíticos e estatísticos usando banco de Dados JSON.
 
 ```
 
-## Passos para utilização:
+## Passos para instalação e uso do app:
 1 - Faça o clone do repositório
 2 - instale a aplicação
 3 - rode o servidor json
@@ -23,7 +23,7 @@ npm i
 npx json-server --watch db.json --port 3000
 npm start
 
-## Passos para utilização:
+## Aplicação rodando:
 <p align="center">
   <img src="./src/assets/images/1.jpg" width="800" alt="Angular" />
 </p>
