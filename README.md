@@ -25,5 +25,8 @@ npm start
 
 ## Passos para utilização:
 <p align="center">
-  <img src="./assets/images/dash.png" width="800" alt="Angular" />
+  <img src="./assets/images/1.jpg" width="800" alt="Angular" />
+</p>
+<p align="center">
+  <img src="./assets/images/2.jpg" width="800" alt="Angular" />
 </p>
