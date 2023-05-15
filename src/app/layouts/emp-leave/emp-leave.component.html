@@ -1,0 +1,72 @@
+<div mat-dialog-title>
+    Aplicação
+</div>
+<form [formGroup]="leaveForm" (ngSubmit)="onSubmit(leaveForm)">
+    <div mat-dialog-content>
+
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Nome</mat-label>
+                <input matInput formControlName="fullName" [disabled]="formDisable">
+            </mat-form-field>
+        </div>
+    
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Login</mat-label>
+                <input matInput formControlName="userId" [disabled]="formDisable">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Senha</mat-label>
+                <input matInput type="password" formControlName="password" [disabled]="formDisable">
+            </mat-form-field>
+        </div>
+
+        <div class="row">
+
+            <mat-form-field appearance="outline">
+                <mat-label>Fone</mat-label>
+                <input matInput type="tel" formControlName="mobileNo" [disabled]="formDisable">
+            </mat-form-field>
+
+        </div>
+
+        <div class="row">
+            <mat-form-field appearance="fill">
+                <mat-label>Data</mat-label>
+                <mat-date-range-input  [rangePicker]="picker">
+                  <input matStartDate formControlName="start" placeholder="Start date" formControlName="startDate" [disabled]="formDisable">
+                  <input matEndDate formControlName="end" placeholder="End date" formControlName="endDate" [disabled]="formDisable">
+                </mat-date-range-input>
+                <mat-hint>MM/DD/YYYY até MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-date-range-picker #picker></mat-date-range-picker>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Número de dias</mat-label>
+                <mat-hint>Escolha</mat-hint>
+                <mat-select formControlName="days" [disabled]="formDisable">
+                  <mat-option value="one">1</mat-option>
+                  <mat-option value="two">2</mat-option>
+                  <mat-option value="one">3</mat-option>
+                  <mat-option value="two">4</mat-option>
+                  <mat-option value="two">5</mat-option>
+                </mat-select>
+              </mat-form-field>
+        </div>
+
+        <div class="row">
+            <mat-form-field appearance="fill">
+                <mat-label>Motivo de ausência</mat-label>
+                <textarea matInput formControlName="reason" [disabled]="formDisable"></textarea>
+                <mat-hint> Especifique </mat-hint>
+              </mat-form-field>
+        </div>
+
+    </div>
+    <div mat-dialog-actions  class="btn-set">
+        <button type="submit" mat-button color="primary" [disabled]="isSubmitted" id="btn">Enviar</button>
+    </div>
+</form>

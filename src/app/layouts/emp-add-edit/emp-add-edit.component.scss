@@ -1,0 +1,25 @@
+.content{
+    padding-top: 10px;
+}
+.row{
+    display: flex;
+    gap: 10px;
+
+    mat-form-field{
+        width: 100%;
+    }
+}
+.btn-set{
+    padding: 0px 25px 20px;
+    button{
+        flex: 1;
+    }
+}
+
+.my-custom-snackbar {
+    margin: 0 !important;
+    position: absolute;
+    right: 25px;
+    top: 60px;
+    background-color: yellow !important;
+  }
