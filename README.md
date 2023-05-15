@@ -9,7 +9,7 @@
 ```bash
 Aplicação completa de gerenciamento de usuarios utilizando JSON Server, 
 formGroup, com datagrid para listar os usuarios, editar, criar novos, excluir, consultar, filtrar
-e com tela de login de acessso, usando recursos de modal, alertas, etc.
+e com tela de login de acessso, usando modal no cadastro/edição, simples e fácil de instalar/usar.
 
 ```
 
